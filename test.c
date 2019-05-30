@@ -31,9 +31,12 @@ void doit(char *text)
     cJSON *json;
 
     json = cJSON_Parse(text);
-    if (!json) {
+    if (!json)
+    {
         printf("Error before: [%s]\n", cJSON_GetErrorPtr());
-    } else {
+    }
+    else
+    {
         out = cJSON_Print(json);
         cJSON_Delete(json);
         printf("%s\n", out);
@@ -115,7 +118,9 @@ void create_objects()
     /* Our matrix: */
     root = cJSON_CreateArray();
     for (i = 0; i < 3; i++)
+    {
         cJSON_AddItemToArray(root, cJSON_CreateIntArray(numbers[i], 3));
+    }
 
     /*	cJSON_ReplaceItemInArray(root,1,cJSON_CreateString("Replacement")); */
 
@@ -145,7 +150,8 @@ void create_objects()
     /* Our array of "records": */
 
     root = cJSON_CreateArray();
-    for (i = 0; i < 2; i++) {
+    for (i = 0; i < 2; i++)
+    {
         cJSON_AddItemToArray(root, fld = cJSON_CreateObject());
         cJSON_AddStringToObject(fld, "precision", fields[i].precision);
         cJSON_AddNumberToObject(fld, "Latitude", fields[i].lat);
