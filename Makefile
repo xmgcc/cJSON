@@ -1,1 +1,2 @@
-gcc *.c -lm
+all:
+  gcc *.c -lm
